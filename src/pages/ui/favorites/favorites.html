@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorites • Cafeteria Pre-Order</title>
+  <link rel="stylesheet" href="./favorites.css" />
+</head>
+<body>
+  <script src="../config.js"></script>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="../home/home.html">
+        <div class="brand__logo">🍱</div>
+        <div>
+          <div class="brand__title">Cafeteria Pre-Order</div>
+          <div class="brand__sub">Islington College</div>
+        </div>
+      </a>
+
+      <nav class="nav" id="navActions">
+        <a class="nav__link" href="../home/home.html">Home</a>
+        <a class="nav__link" href="../menu/menu.html">Menu</a>
+        <a class="nav__link" href="../orders/orders.html">Orders</a>
+        <a class="nav__link" href="../cart/cart.html">Cart</a>
+        <a class="nav__link" href="../wallet/wallet.html">Top-up Wallet</a>
+        <a class="nav__link" href="../profile/profile.html">Profile</a>
+        <button class="nav__link nav__btn" id="btnLogout" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="favorites-hero">
+      <div class="container favorites-hero__inner">
+        <div class="hero-copy">
+          <div class="hero-badge">Saved Items</div>
+          <h1>My Favorite Items</h1>
+          <p>
+            Quickly access the food and drinks you liked the most, review them anytime,
+            and add them straight to your cart.
+          </p>
+
+          <div class="hero-actions">
+            <a class="hero-btn hero-btn--solid" href="../menu/menu.html">Back to Menu</a>
+            <a class="hero-btn hero-btn--ghost" href="../cart/cart.html">
+              Cart (<span id="cartCount">0</span>)
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card__icon">♥</div>
+          <div class="hero-card__text">
+            <strong id="favoritesCount">0</strong>
+            <span>favorite item(s)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container content-wrap">
+      <div class="section-head">
+        <div>
+          <h2>Your Favorites</h2>
+          <p class="section-sub">
+            Remove items, check nutrition details, or add them directly to your cart.
+          </p>
+        </div>
+
+        <div class="result-count" id="resultCount">0 item(s)</div>
+      </div>
+
+      <div id="emptyState" class="empty-card" hidden>
+        <div class="empty-card__icon">♡</div>
+        <h3>No favorites added yet</h3>
+        <p>Save items from the menu page and they will appear here.</p>
+        <a class="empty-card__btn" href="../menu/menu.html">Go to Menu</a>
+      </div>
+
+      <div class="favorites-grid" id="favoritesGrid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© Islington College — Cafeteria Pre-Ordering System</span>
+    </div>
+  </footer>
+
+  <script src="./favorites.js"></script>
+</body>
+</html>

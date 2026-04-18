@@ -1,0 +1,303 @@
+:root{
+  --bg1: #f6f3ff;
+  --bg2: #f1f7ff;
+
+  --text: #1f2937;
+  --muted: rgba(31, 41, 55, 0.65);
+
+  --green: #5f6f5a;
+  --green-dark: #4d5b49;
+
+  --shadow: 0 10px 30px rgba(45, 45, 90, 0.10);
+  --shadow-soft: 0 8px 18px rgba(45, 45, 90, 0.08);
+
+  --radius: 18px;
+}
+
+*{ box-sizing: border-box; }
+html, body { height: 100%; }
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 700px at 20% 10%, rgba(210, 195, 255, 0.55), transparent 60%),
+    radial-gradient(900px 650px at 80% 20%, rgba(200, 232, 255, 0.55), transparent 55%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+}
+
+a{ color: inherit; text-decoration: none; }
+
+/* Header */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(246, 243, 255, 0.72);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(25,25,25,0.06);
+}
+
+.topbarInner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo{
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(25,25,25,0.07);
+  box-shadow: var(--shadow-soft);
+}
+
+.brandTitle{ font-weight: 800; }
+.brandSub{ font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* Header right side (your nav buttons) */
+.header-actions{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Make header buttons match Register button exactly */
+.nav-btn{
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  background: var(--green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  border: 0;
+  box-shadow: 0 10px 18px rgba(95,111,90,0.22);
+  transition: transform 0.06s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.nav-btn:hover{ background: var(--green-dark); }
+.nav-btn:active{ transform: translateY(1px); }
+
+/* If you still want an outline style sometimes */
+.nav-btn.outline{
+  background: transparent;
+  border: 1.5px solid var(--green);
+  color: var(--green);
+  box-shadow: none;
+}
+.nav-btn.outline:hover{
+  background: var(--green);
+  color: #fff;
+}
+
+/* Buttons (form buttons etc.) */
+.btn{
+  border: 0;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 800;
+  transition: transform 0.06s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+.btn:active{ transform: translateY(1px); }
+
+.btnPrimary{
+  background: var(--green);
+  color: #fff;
+  box-shadow: 0 10px 18px rgba(95,111,90,0.22);
+}
+.btnPrimary:hover{ background: var(--green-dark); }
+
+/* Keep ghost if needed elsewhere */
+.btnGhost{
+  background: rgba(255,255,255,0.70);
+  color: var(--text);
+  border: 1px solid rgba(25,25,25,0.10);
+  box-shadow: var(--shadow-soft);
+}
+.btnGhost:hover{ background: rgba(255,255,255,0.92); }
+
+.btnFull{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+/* Main */
+.wrap{
+  min-height: calc(100vh - 64px - 52px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
+}
+
+.authCard{
+  width: min(500px, 100%);
+  background: rgba(255,255,255,0.90);
+  border: 1px solid rgba(25,25,25,0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.cardTop{
+  height: 130px;
+  background: rgba(255,255,255,0.70);
+}
+
+.topImg{
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+}
+
+.cardBody{
+  padding: 14px 20px 18px;
+}
+
+.title{
+  margin: 6px 0 16px;
+  font-size: 34px;
+  letter-spacing: -0.4px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.msg{
+  margin: 8px 0 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 650;
+  border: 1px solid rgba(25,25,25,0.10);
+  background: rgba(255,255,255,0.85);
+}
+.msg.ok{ color: #155724; background: rgba(40,167,69,0.12); border-color: rgba(40,167,69,0.25); }
+.msg.err{ color: #721c24; background: rgba(220,53,69,0.12); border-color: rgba(220,53,69,0.25); }
+
+.form{ padding: 0; }
+.field{ margin-top: 10px; }
+
+.label{
+  display: block;
+  margin-bottom: 7px;
+  font-size: 16px;
+}
+
+.input{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(95,111,90,0.22);
+  background: rgba(232,240,255,0.55);
+  outline: none;
+  font-size: 16px;
+}
+.input:focus{
+  border-color: rgba(95,111,90,0.55);
+  box-shadow: 0 0 0 4px rgba(95,111,90,0.10);
+  background: rgba(232,240,255,0.75);
+}
+
+.rowBetween{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 12px;
+  gap: 11px;
+  flex-wrap: wrap;
+}
+
+.remember{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.bottomText{
+  margin: 12px 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Default “link” styling (non-footer links) */
+.link{
+  color: var(--green-dark);
+  font-weight: 800;
+  text-decoration: none;
+}
+.link:hover{ text-decoration: underline; }
+
+/* Footer */
+.footer{
+  margin-top: 12px;
+  padding: 14px 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  border-top: 1px solid rgba(25,25,25,0.06);
+  background: rgba(246, 243, 255, 0.55);
+}
+
+/* ✅ IMPORTANT FIX:
+   Any link/button inside footer becomes same as Register button */
+.footer a,
+.footer .link,
+.footer .footer-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  background: var(--green);
+  color: #fff !important;
+
+  font-weight: 800;
+  text-decoration: none;
+  border: 0;
+
+  box-shadow: 0 10px 18px rgba(95,111,90,0.22);
+  transition: transform 0.06s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+/* If you have multiple footer links, give space */
+.footer a + a,
+.footer .footer-btn + .footer-btn,
+.footer a + .footer-btn{
+  margin-left: 10px;
+}
+
+.footer a:hover,
+.footer .link:hover,
+.footer .footer-btn:hover{
+  background: var(--green-dark);
+  text-decoration: none;
+}
+
+.footer a:active,
+.footer .footer-btn:active{
+  transform: translateY(1px);
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Create Account</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./register.css" />
+</head>
+
+<body>
+  <script src="../config.js"></script>
+
+  <header class="topbar">
+    <div class="topbarInner">
+      <div class="brand" id="goHome" title="Go Home">
+        <div class="logo">🍱</div>
+        <div>
+          <div class="brandTitle">Cafeteria Pre-Order</div>
+          <div class="brandSub">Islington College</div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <a href="../login/login.html" class="nav-btn">Login</a>
+        <a href="../home/home.html" class="nav-btn">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="authCard">
+      <div class="topBanner">
+  <img src="./register-top.png" />
+</div>
+
+<div class="cardBody">
+
+        <h1 class="title">Create Account</h1>
+
+        <div id="msg" class="msg" style="display:none;"></div>
+
+        <form id="registerForm" class="form" novalidate>
+          <div class="field">
+            <label class="label" for="fullName">Full Name</label>
+            <input class="input" id="fullName" name="fullName" type="text" placeholder="Full Name" />
+          </div>
+
+          <div class="field">
+            <label class="label" for="email">College Email</label>
+            <input class="input" id="email" name="email" type="email" placeholder="collegeemail@islingtoncollege.edu.np" />
+          </div>
+
+          <div class="field">
+            <label class="label" for="password">Password</label>
+            <input class="input" id="password" name="password" type="password" placeholder="********" />
+          </div>
+
+          <div class="field">
+            <label class="label" for="confirmPassword">Confirm Password</label>
+            <input class="input" id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" />
+          </div>
+
+          <p class="hint">Password should be at least 6 characters.</p>
+
+          <button class="btn btnPrimary btnFull" id="btnRegister" type="submit">
+            Register
+          </button>
+
+          <p class="bottomText">
+            Already have an account?
+            <a class="btnHeader" href="../login/login.html">Login</a>
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © Islington College — Cafeteria Pre-Ordering System 
+  </footer>
+
+  <script src="./register.js"></script>
+</body>
+</html>

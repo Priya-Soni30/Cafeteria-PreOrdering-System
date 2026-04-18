@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cafeteria Pre-Ordering System</title>
+  <link rel="stylesheet" href="./home.css" />
+</head>
+<body>
+  <script src="../config.js"></script>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand" id="goHome">
+        <div class="brand-icon">🍱</div>
+        <div class="brand-text">
+          <h2>Cafeteria Pre-Order</h2>
+          <p>Islington College</p>
+        </div>
+      </div>
+
+      <div class="top-actions" id="topActions">
+        <button id="goLogin" class="top-btn">Login</button>
+        <button id="goRegister" class="top-btn">Register</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-card">
+      <img src="./home-hero.png" alt="Cafeteria banner" class="hero-image" />
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <span class="hero-badge">Fast • Easy • Smart</span>
+        <h1>Order your meal <span class="accent-italic">before</span> the queue starts.</h1>
+        <p>
+          Pre-order from your college cafeteria, choose pickup time,
+          and collect your order with less waiting in a <span class="soft-italic">simple, smart way</span>.
+        </p>
+
+        <div class="hero-actions">
+          <button
+            id="startOrder"
+            class="main-btn"
+            data-id="home-featured-special"
+            data-name="Chef Special Meal"
+            data-price="220"
+            data-image="food-momo.png"
+            data-cafeteria="Islington College Cafeteria"
+          >
+            Start Ordering
+          </button>
+
+          <button id="viewMenu" class="main-btn">View Menu</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="page">
+    <section class="features-section">
+      <div class="mini-card">
+        <h3>4 Cafeterias</h3>
+        <p>Order from Kumari Hall, Brit Cafe, Coffee Station, and Canteen.</p>
+      </div>
+
+      <div class="mini-card">
+        <h3>Pre-order Pickup</h3>
+        <p>Select pickup time and avoid long waiting during busy hours.</p>
+      </div>
+
+      <div class="mini-card">
+        <h3>QR Collection</h3>
+        <p>Collect your order quickly with simple QR verification.</p>
+      </div>
+    </section>
+
+    <section class="specials-section">
+      <div class="section-title section-title--left">
+        <div>
+          <h2>Today’s Daily Specials</h2>
+          <p><span class="soft-italic">Fresh picks</span> from different cafeterias for today.</p>
+        </div>
+
+        <button id="seeAllSpecials" class="see-all-btn" type="button">
+          View Full Menu
+        </button>
+      </div>
+
+      <div id="specialsState" class="specials-state">
+        Loading today’s specials...
+      </div>
+
+      <div id="specialsGrid" class="specials-grid" style="display: none;"></div>
+    </section>
+
+    <section class="cafeteria-section">
+      <div class="section-title">
+        <h2>Choose a Cafeteria</h2>
+        <p>Select a cafeteria and explore its menu.</p>
+      </div>
+
+      <div class="cafeteria-grid">
+        <div class="cafeteria-box kumari-card">
+          <div class="cafeteria-top-line"></div>
+          <h3>Kumari Hall</h3>
+          <p>Main meals, snacks, bakery items, and drinks.</p>
+          <button class="card-btn cafeteria-btn" data-cafeteria="kumari-hall">View Menu</button>
+        </div>
+
+        <div class="cafeteria-box brit-card">
+          <div class="cafeteria-top-line"></div>
+          <h3>Brit Cafe</h3>
+          <p>Quick bites, burgers, pasta, and beverages.</p>
+          <button class="card-btn cafeteria-btn" data-cafeteria="brit-cafe">View Menu</button>
+        </div>
+
+        <div class="cafeteria-box coffee-card">
+          <div class="cafeteria-top-line"></div>
+          <h3>Coffee Station</h3>
+          <p>Coffee, tea, light snacks, and pastries.</p>
+          <button class="card-btn cafeteria-btn" data-cafeteria="coffee-station">View Menu</button>
+        </div>
+
+        <div class="cafeteria-box canteen-card">
+          <div class="cafeteria-top-line"></div>
+          <h3>Canteen</h3>
+          <p>Daily meals, rice sets, momo, and popular dishes.</p>
+          <button class="card-btn cafeteria-btn" data-cafeteria="canteen">View Menu</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© Islington College — Cafeteria Pre-Ordering System</p>
+  </footer>
+
+  <script src="./home.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wallet • Cafeteria Pre-Order System</title>
+  <link rel="stylesheet" href="./wallet.css" />
+</head>
+<body>
+  <script src="../config.js"></script>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="../home/home.html">
+        <div class="brand__logo">🍱</div>
+        <div>
+          <div class="brand__title">Cafeteria Pre-Order</div>
+          <div class="brand__sub">Islington College</div>
+        </div>
+      </a>
+
+      <nav class="nav" id="navActions">
+        <a class="nav__link" href="../home/home.html">Home</a>
+        <a class="nav__link" href="../orders/orders.html">Orders</a>
+        <a class="nav__link" href="../profile/profile.html">Profile</a>
+        <button class="nav__link nav__btn" id="btnLogout" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container wallet-page">
+    <section class="wallet-top">
+      <div class="wallet-top__left">
+        <div class="hero-pill">Quick • Safe • Prepaid Orders</div>
+        <h1>Wallet & Monthly Top-Up</h1>
+        <p>
+          Add balance and manage your monthly cafeteria top-up for faster prepaid ordering.
+        </p>
+      </div>
+
+      <div class="wallet-top__actions">
+        <a class="btn btn--olive btn--nohover" href="../menu/menu.html">Go to Menu</a>
+        <a class="btn btn--olive btn--nohover" href="../cart/cart.html">Go to Cart</a>
+      </div>
+    </section>
+
+    <section class="wallet-summary">
+      <article class="summary-card summary-card--main">
+        <div class="summary-head">
+          <div>
+            <p class="summary-label">Available Balance</p>
+            <h2 id="walletBalance">Rs. 0</h2>
+          </div>
+          <span class="status-badge">Active</span>
+        </div>
+        <p class="summary-text">Use your wallet balance for prepaid cafeteria orders.</p>
+      </article>
+
+      <article class="summary-card">
+        <p class="summary-label">This Month Top-Up</p>
+        <h3 id="monthlyTopup">Rs. 0</h3>
+        <p class="summary-text">Monthly recharge amount saved in your wallet.</p>
+      </article>
+
+      <article class="summary-card">
+        <p class="summary-label">Loyalty Points</p>
+        <h3 id="loyaltyPoints">0 pts</h3>
+        <p class="summary-text">Points earned from prepaid top-ups and orders.</p>
+      </article>
+    </section>
+
+    <section class="wallet-main">
+      <section class="card card--primary">
+        <div class="section-head">
+          <div>
+            <h2>Top-Up Your Wallet</h2>
+            <p class="section-sub">Choose a quick amount or enter your own amount.</p>
+          </div>
+        </div>
+
+        <div class="quick-amounts">
+          <button class="amount-btn" type="button" data-amount="500">Rs. 500</button>
+          <button class="amount-btn" type="button" data-amount="1000">Rs. 1000</button>
+          <button class="amount-btn" type="button" data-amount="2000">Rs. 2000</button>
+          <button class="amount-btn" type="button" data-amount="5000">Rs. 5000</button>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="customAmount">Custom Amount</label>
+            <input id="customAmount" type="number" min="100" step="50" placeholder="Enter amount" />
+          </div>
+
+          <div class="field">
+            <label for="paymentMethod">Payment Method</label>
+            <select id="paymentMethod">
+              <option value="esewa">eSewa Payment</option>
+              <option value="cash">Cash</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="payment-box" id="paymentBox">
+          <div class="field field--full">
+            <label>Payment Preview</label>
+            <div id="paymentPreview" class="preview-box">
+              eSewa payment will redirect you to eSewa sandbox before wallet top-up confirmation.
+            </div>
+          </div>
+        </div>
+
+        <div class="monthly-plan">
+          <div class="monthly-plan__text">
+            <h3>Monthly Top-Up Plan</h3>
+            <p>Turn on monthly recharge for regular cafeteria use.</p>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox" id="monthlyPlanToggle" />
+            <span class="switch__slider"></span>
+          </label>
+        </div>
+
+        <div class="form-grid form-grid--small">
+          <div class="field">
+            <label for="monthlyAmount">Monthly Amount</label>
+            <select id="monthlyAmount">
+              <option value="500">Rs. 500</option>
+              <option value="1000">Rs. 1000</option>
+              <option value="2000">Rs. 2000</option>
+              <option value="5000">Rs. 5000</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="monthlyDate">Recharge Day</label>
+            <select id="monthlyDate">
+              <option value="1">1st of every month</option>
+              <option value="5">5th of every month</option>
+              <option value="10">10th of every month</option>
+              <option value="15">15th of every month</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button class="btn btn--olive btn--nohover" id="btnTopUp" type="button">Top Up Now</button>
+          <button class="btn btn--olive btn--nohover" id="btnSavePlan" type="button">Save Monthly Plan</button>
+        </div>
+
+        <div id="walletMsg" class="msg" hidden></div>
+      </section>
+
+      <section class="card card--secondary">
+        <div class="section-head">
+          <div>
+            <h2>Recent Transactions</h2>
+            <p class="section-sub">Wallet recharge history and latest updates.</p>
+          </div>
+        </div>
+
+        <div id="transactionList" class="transaction-list"></div>
+        <div id="emptyTransactions" class="empty-state">No wallet transactions yet.</div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© Islington College — Cafeteria Pre-Ordering System</p>
+    </div>
+  </footer>
+
+  <script src="./wallet.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./login.css" />
+</head>
+
+<body>
+  <script src="../config.js"></script>
+
+  <header class="topbar">
+    <div class="topbarInner">
+      <div class="brand" id="goHome" title="Go Home">
+        <div class="logo">🍱</div>
+        <div>
+          <div class="brandTitle">Cafeteria Pre-Order</div>
+          <div class="brandSub">Islington College</div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <a href="../register/register.html" class="nav-btn">Register</a>
+        <a href="../home/home.html" class="nav-btn home-btn">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="authCard">
+      <div class="cardTop">
+        <img class="topImg" src="./login-top.png?v=1" alt="Login illustration" />
+      </div>
+
+      <div class="cardBody">
+        <h1 class="title">Login</h1>
+
+        <div id="msg" class="msg" style="display:none;"></div>
+
+        <form id="loginForm" class="form" novalidate>
+          <div class="field">
+            <label class="label" for="email">College Email</label>
+            <input class="input" id="email" name="email" type="email" placeholder="collegeemail@islingtoncollege.edu.np" />
+          </div>
+
+          <div class="field">
+            <label class="label" for="password">Password</label>
+            <input class="input" id="password" name="password" type="password" placeholder="********" />
+          </div>
+
+          <div class="rowBetween">
+            <label class="remember">
+              <input type="checkbox" id="rememberMe" />
+              Remember me
+            </label>
+
+            <a class="link" href="../forgot/forgot.html" id="linkForgot">Forgot password?</a>
+          </div>
+
+          <button class="btn btnPrimary btnFull" id="btnLogin" type="submit">
+            Login
+          </button>
+
+          <p class="bottomText">
+            Don’t have an account?
+            <a class="link" href="../register/register.html" id="linkRegister">Register</a>
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © Islington College — Cafeteria Pre-Ordering System
+  </footer>
+
+  <script src="./login.js"></script>
+</body>
+</html>

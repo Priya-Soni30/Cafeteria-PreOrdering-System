@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forgot Password</title>
+  <link rel="stylesheet" href="./forgot.css" />
+</head>
+<body class="authPage">
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="topbar__left">
+        <div class="topbar__logoWrap">
+          <div class="logo">🍱</div>
+        </div>
+
+        <div class="topbar__brandText">
+          <div class="topbar__title">Cafeteria Pre-Order</div>
+          <div class="topbar__sub">Islington College</div>
+        </div>
+      </div>
+
+      <div class="topbar__right">
+        <a href="../login/login.html" class="topbar__btn topbar__btn--solid">Login</a>
+        <a href="../home/home.html" class="topbar__btn topbar__btn--outline">home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="authWrap">
+    <section class="card">
+      <h1 class="title">Reset Password</h1>
+      <p class="sub">Enter your email to receive a 4-digit OTP.</p>
+
+      <div id="msg" class="msg" style="display:none;"></div>
+
+      <div class="box">
+        <h2 class="boxTitle">College Email</h2>
+
+        <input
+          id="email"
+          class="input"
+          type="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+        />
+
+        <button id="btnSendOtp" class="btn" type="button">Send OTP</button>
+
+        <p class="hint">The OTP will be sent to your email and will be valid for 5 minutes.</p>
+      </div>
+
+      <div class="box">
+        <h2 class="boxTitle">Verify OTP</h2>
+
+        <input
+          id="otp"
+          class="input"
+          type="text"
+          inputmode="numeric"
+          maxlength="4"
+          placeholder="Enter 4-digit OTP"
+        />
+
+        <label class="label" for="newPassword">New Password</label>
+        <input
+          id="newPassword"
+          class="input"
+          type="password"
+          placeholder="Enter new password"
+          autocomplete="new-password"
+        />
+
+        <label class="label" for="confirmPassword">Confirm Password</label>
+        <input
+          id="confirmPassword"
+          class="input"
+          type="password"
+          placeholder="Confirm new password"
+          autocomplete="new-password"
+        />
+
+        <button id="btnReset" class="btn" type="button">Reset Password</button>
+      </div>
+
+      <a href="../login/login.html" class="backLink" id="backToLogin">Back to Login</a>
+    </section>
+  </main>
+
+  <footer class="siteFooter">
+    <div class="siteFooter__inner">
+      <p>© <span id="year"></span> Islington College • Cafeteria System</p>
+    </div>
+  </footer>
+
+  <!-- IMPORTANT: use relative paths -->
+  <script src="../config.js"></script>
+  <script src="./forgot.js"></script>
+</body>
+</html>

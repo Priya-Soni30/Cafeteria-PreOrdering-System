@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pickup Scanner • Cafeteria Pre-Order</title>
+  <link rel="stylesheet" href="./pickup-scanner.css" />
+</head>
+<body>
+  <script src="../config.js"></script>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand" id="goHome">
+        <div class="brand-icon">🍱</div>
+        <div class="brand-text">
+          <h2>Cafeteria Pre-Order</h2>
+          <p>Islington College</p>
+        </div>
+      </div>
+
+      <nav class="top-actions" id="navActions"></nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero-card">
+      <div class="hero-badge">QR Pickup Scanner</div>
+      <h1>Scan and verify pickup orders</h1>
+      <p>
+        Open an order directly from the Orders page, preview its pickup QR,
+        or scan the code to verify food details, payment status, and total before collection.
+      </p>
+
+      <div class="hero-pills">
+        <span class="pill" id="heroCafePill">Cafeteria Pickup</span>
+        <span class="pill" id="heroStatusPill">Ready to Scan</span>
+      </div>
+    </section>
+
+    <section class="scanner-layout">
+      <section class="glass-card">
+        <div class="section-head">
+          <div>
+            <h2>Scanner</h2>
+            <p>Use the camera scanner or paste pickup QR text manually.</p>
+          </div>
+          <button type="button" class="btn btn-soft" id="btnStartScanner">Start Scanner</button>
+        </div>
+
+        <div class="scanner-box">
+          <div id="reader">
+            <div id="qrPreviewBox" class="qr-preview">
+              <div id="qrPreview" class="qr-preview-canvas"></div>
+              <div class="qr-preview-text">Current Pickup QR</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="manual-area">
+          <label for="manualQrText">Manual QR Text</label>
+          <textarea
+            id="manualQrText"
+            placeholder="Paste scanned QR text here if camera scan is unavailable..."
+          ></textarea>
+
+          <div class="manual-actions">
+            <button type="button" class="btn" id="btnParseManual">Read QR Text</button>
+            <button type="button" class="btn btn-soft" id="btnClearManual">Clear</button>
+            <button type="button" class="btn btn-soft" id="btnResetScan">Reset</button>
+          </div>
+        </div>
+
+        <div class="message-box" id="scanMessage">Waiting for scan...</div>
+      </section>
+
+      <section class="glass-card">
+        <div class="section-head">
+          <div>
+            <h2>Pickup Details</h2>
+            <p>Loaded or scanned order information will appear here.</p>
+          </div>
+          <span class="status-chip" id="resultBadge">No Order</span>
+        </div>
+
+        <div class="empty-state" id="resultEmpty">
+          No order loaded yet.
+        </div>
+
+        <div class="result-content" id="resultContent" style="display:none;">
+          <div class="summary-grid">
+            <div class="summary-item">
+              <span class="summary-label">Order No</span>
+              <strong id="orderNoText">—</strong>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-label">Collection Code</span>
+              <strong id="collectionCodeText">—</strong>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-label">Cafeteria</span>
+              <strong id="cafeteriaText">—</strong>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-label">Pickup Time</span>
+              <strong id="pickupTimeText">—</strong>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-label">Payment Method</span>
+              <strong id="paymentMethodText">—</strong>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-label">Payment Status</span>
+              <strong id="paymentStatusText">—</strong>
+            </div>
+
+            <div class="summary-item summary-item--full">
+              <span class="summary-label">Grand Total</span>
+              <strong id="totalText">Rs 0</strong>
+            </div>
+          </div>
+
+          <div class="items-card">
+            <div class="items-head">
+              <h3>Ordered Items</h3>
+              <span id="itemCountText">0 item(s)</span>
+            </div>
+
+            <div id="itemsList" class="items-list"></div>
+          </div>
+
+          <div class="result-actions">
+            <button type="button" class="btn" id="btnMarkCollected">Mark Collected</button>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Islington College — Cafeteria Pre-Ordering System</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <script src="./pickup-scanner.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rewards • Cafeteria Pre-Order</title>
+  <link rel="stylesheet" href="./rewards.css" />
+</head>
+<body>
+  <script src="../config.js"></script>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="../home/home.html">
+        <div class="logo">🍱</div>
+        <div>
+          <div class="brand__title">Cafeteria Pre-Order</div>
+          <div class="brand__sub">Islington College</div>
+        </div>
+      </a>
+
+      <nav class="nav" id="userNav">
+        <a class="nav__link" href="../home/home.html">Home</a>
+        <a class="nav__link" href="../menu/menu.html">Menu</a>
+        <a class="nav__link" href="../orders/orders.html">Orders</a>
+        <a class="nav__link" href="../cart/cart.html">Cart</a>
+        <a class="nav__link" href="../profile/profile.html">Profile</a>
+        <button class="nav__link nav__logout" id="btnLogout" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container rewardsShell">
+      <section class="heroCard">
+        <div class="heroText">
+          <span class="heroTag">Student Rewards</span>
+          <h1>Rewards & Points</h1>
+          <p>
+            Your points are calculated from your own completed orders, item quantities, and cafeteria bonuses.
+            Use this page to track points, understand discounts, and review your recent reward activity.
+          </p>
+        </div>
+      </section>
+
+      <section class="statsGrid">
+        <article class="statCard">
+          <div class="statIcon">⭐</div>
+          <div class="statInfo">
+            <span class="statLabel">Available Points</span>
+            <strong class="statValue" id="availablePoints">0</strong>
+          </div>
+        </article>
+
+        <article class="statCard">
+          <div class="statIcon">🧾</div>
+          <div class="statInfo">
+            <span class="statLabel">My Orders</span>
+            <strong class="statValue" id="ordersCount">0</strong>
+          </div>
+        </article>
+
+        <article class="statCard">
+          <div class="statIcon">🍽️</div>
+          <div class="statInfo">
+            <span class="statLabel">Items Ordered</span>
+            <strong class="statValue" id="itemsCount">0</strong>
+          </div>
+        </article>
+
+        <article class="statCard">
+          <div class="statIcon">🎟️</div>
+          <div class="statInfo">
+            <span class="statLabel">Current Discount</span>
+            <strong class="statValue" id="eligibleDiscount">0%</strong>
+          </div>
+        </article>
+      </section>
+
+      <section class="contentGrid">
+        <section class="contentCard">
+          <h2>How Your Rewards Work</h2>
+
+          <div class="rulesGrid">
+            <div class="ruleBox">
+              <h3>Base Rule</h3>
+              <p>Each ordered item gives <strong>10 points</strong>.</p>
+            </div>
+
+            <div class="ruleBox">
+              <h3>Cafeteria Bonus</h3>
+              <ul>
+                <li>Kumari Hall: +2 per item</li>
+                <li>Brit Cafe: +3 per item</li>
+                <li>Coffee Station: +1 per item</li>
+                <li>Canteen: +4 per item</li>
+              </ul>
+            </div>
+
+            <div class="ruleBox">
+              <h3>Discount Levels</h3>
+              <ul>
+                <li>50 points = 5% off</li>
+                <li>100 points = 10% off</li>
+                <li>150 points = 15% off</li>
+                <li>200 points = 20% off</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="contentCard">
+          <h2>My Reward Summary</h2>
+
+          <div class="summaryList">
+            <div class="summaryRow">
+              <span>Base points from items</span>
+              <strong id="basePoints">0</strong>
+            </div>
+
+            <div class="summaryRow">
+              <span>Cafeteria bonus points</span>
+              <strong id="bonusPoints">0</strong>
+            </div>
+
+            <div class="summaryRow summaryRow--total">
+              <span>Total reward points</span>
+              <strong id="totalRewardPoints">0</strong>
+            </div>
+          </div>
+
+          <div class="actionButtons">
+            <button class="actionBtn" id="btnGoCart" type="button">Redeem in Cart</button>
+            <button class="actionBtn" id="btnGoOrders" type="button">My Orders</button>
+            <button class="actionBtn" id="btnGoMenu" type="button">Continue Ordering</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="contentCard">
+        <div class="sectionHead">
+          <h2>Recent Reward Activity</h2>
+          <span class="sectionHint">Only your own orders are counted</span>
+        </div>
+
+        <div class="activityList" id="rewardActivityList">
+          <div class="emptyState">No reward activity found yet.</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Islington College — Cafeteria Pre-Ordering System</div>
+    </div>
+  </footer>
+
+  <script src="./rewards.js"></script>
+</body>
+</html>

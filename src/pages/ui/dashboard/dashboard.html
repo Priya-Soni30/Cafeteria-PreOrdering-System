@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard • Cafeteria Pre-Order</title>
+  <link rel="stylesheet" href="./dashboard.css" />
+  <script src="../config.js"></script>
+</head>
+<body>
+  <header class="mainHeader">
+    <div class="headerContainer">
+      <a class="brandWrap brandLink" href="../home/home.html">
+        <div class="brandLogo">🍱</div>
+        <div class="brandText">
+          <div class="brandTitle">Cafeteria Pre-Order System</div>
+          <div class="brandSub">Islington College</div>
+        </div>
+      </a>
+
+      <nav class="navLinks" id="navLinks">
+        <a href="../home/home.html" class="navBtn">Home</a>
+        <a href="../menu/menu.html" class="navBtn">Menu</a>
+        <a href="#" id="btnLogout" class="navBtn">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="panel heroPanel">
+      <div class="heroLeft">
+        <div class="heroTop">
+          <div class="heroBadge">Admin • Control Center</div>
+          <h1>Cafeteria Dashboard</h1>
+          <p>
+            Manage incoming pre-orders, update order status, monitor pickup flow,
+            and track cafeteria performance from one clean admin workspace.
+          </p>
+        </div>
+
+        <div class="heroHighlights">
+          <div class="highlightBox highlightLav">
+            <span class="highlightTitle">Today Focus</span>
+            <span class="highlightValue">Order Tracking & Pickup</span>
+          </div>
+
+          <div class="highlightBox highlightBlue">
+            <span class="highlightTitle">Live View</span>
+            <span class="highlightValue">Real-time Admin Monitoring</span>
+          </div>
+        </div>
+
+        <div class="heroInfoGrid">
+          <div class="infoCard infoLav">
+            <div class="infoLabel">Wait Time</div>
+            <div class="infoValue" id="waitTimeEstimate">10–15 min</div>
+          </div>
+
+          <div class="infoCard infoBlue">
+            <div class="infoLabel">Peak Hours</div>
+            <div class="infoValue" id="peakHoursText">12 PM – 2 PM</div>
+          </div>
+
+          <div class="infoCard infoMint">
+            <div class="infoLabel">Pickup Queue</div>
+            <div class="infoValue" id="readyPickupCount">0 orders waiting</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroRight">
+        <div class="miniPanel adminTheme">
+          <div class="miniTitle">Admin Access</div>
+          <div class="miniText">
+            This dashboard is available only for authorized admin users.
+          </div>
+
+          <div class="statusRow">
+            <span class="chip chipOk" id="adminBadge">Checking...</span>
+            <span class="statusText" id="adminHint">Verifying session</span>
+          </div>
+
+          <div class="adminMetaGrid">
+            <div class="metaBox">
+              <div class="metaLabel">Mode</div>
+              <div class="metaValue">Operations</div>
+            </div>
+
+            <div class="metaBox">
+              <div class="metaLabel">Ready Pickup</div>
+              <div class="metaValue" id="qrPendingCount">0 pending</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="miniPanel actionTheme">
+          <div class="miniTitle">Quick Filters</div>
+
+          <div class="filterBlock">
+            <button class="btn" id="btnRefresh" type="button">Refresh Orders</button>
+
+            <div class="fieldGroup">
+              <label for="filterSelect" class="fieldLabel">Filter Orders</label>
+              <select id="filterSelect" class="filterSelect">
+                <option value="all">All Orders</option>
+                <option value="placed">Placed</option>
+                <option value="preparing">Preparing</option>
+                <option value="ready">Ready</option>
+                <option value="collected">Collected</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="statsGrid">
+      <div class="statCard statCardGreen">
+        <div class="statLabel">Total Orders</div>
+        <div class="statValue" id="totalOrders">0</div>
+      </div>
+
+      <div class="statCard statCardLav">
+        <div class="statLabel">Placed</div>
+        <div class="statValue" id="placedCount">0</div>
+      </div>
+
+      <div class="statCard statCardBlue">
+        <div class="statLabel">Preparing</div>
+        <div class="statValue" id="preparingCount">0</div>
+      </div>
+
+      <div class="statCard statCardMint">
+        <div class="statLabel">Ready</div>
+        <div class="statValue" id="readyCount">0</div>
+      </div>
+
+      <div class="statCard statCardSoft">
+        <div class="statLabel">Collected</div>
+        <div class="statValue" id="collectedCount">0</div>
+      </div>
+
+      <div class="statCard statCardRevenue">
+        <div class="statLabel">Revenue</div>
+        <div class="statValue" id="todayRevenue">Rs 0</div>
+      </div>
+    </section>
+
+    <section class="opsGrid">
+      <div class="panel compactPanel compactPanelGreen">
+        <div class="smallHead">
+          <h3>Payment Summary</h3>
+        </div>
+        <div class="opsText">Quick overview of order payment methods.</div>
+        <div class="paymentSplit">
+          <span class="opsPill">Online: <strong id="onlinePaymentsCount">0</strong></span>
+          <span class="opsPill">Wallet: <strong id="walletPaymentsCount">0</strong></span>
+          <span class="opsPill">Cash: <strong id="cashPaymentsCount">0</strong></span>
+        </div>
+      </div>
+
+      <div class="panel compactPanel compactPanelBlue">
+        <div class="smallHead">
+          <h3>System Summary</h3>
+        </div>
+        <div class="opsText">Quick operational information for admin monitoring.</div>
+        <div class="opsValue" id="walletSummary">0 wallet payments</div>
+        <div class="opsValue alt" id="specialsCount">Specials synced with system</div>
+      </div>
+    </section>
+
+    <section class="panel tablePanel">
+      <div class="panelHead">
+        <div>
+          <h2>All Orders</h2>
+          <p class="panelSub" id="tableSubText">Live order list for cafeteria management.</p>
+        </div>
+      </div>
+
+      <div id="dashboardMsg" class="dashboardMsg" style="display:none;"></div>
+
+      <div id="emptyBox" class="emptyBox" style="display:none;">
+        No orders found.
+      </div>
+
+      <div class="tableWrap">
+        <table class="orderTable">
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Student</th>
+              <th>Pickup</th>
+              <th>Payment</th>
+              <th>Status</th>
+              <th>Total</th>
+              <th>Items</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="mainFooter">
+      <div class="footInner">
+        © <span id="year"></span> Cafeteria Pre-Order System
+      </div>
+    </footer>
+  </main>
+
+  <script src="./dashboard.js"></script>
+</body>
+</html>

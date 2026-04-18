@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Profile • Cafeteria Pre-Order</title>
+  <link rel="stylesheet" href="./edit-profile.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="../home/home.html">
+        <div class="logo">🍱</div>
+        <div>
+          <div class="brand__title">Cafeteria Pre-Order</div>
+          <div class="brand__sub">Islington College</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="../home/home.html">Home</a>
+        <a class="nav__link" href="../profile/profile.html">Profile</a>
+        <button class="nav__link" id="btnLogout" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container editShell">
+      <section class="leftPanel">
+        <article class="profileCard">
+          <div class="profileTop"></div>
+
+          <div class="profileBody">
+            <div class="avatarWrap">
+              <img
+                id="profileAvatar"
+                class="avatar"
+                src="../../../../assets/default-avatar.png"
+                alt="Profile Avatar"
+              />
+              <label for="avatarInput" class="themeBtn changeBtn">Change</label>
+              <input type="file" id="avatarInput" accept="image/*" hidden />
+            </div>
+
+            <div class="profileIntro">
+              <h2 id="previewName">Student User</h2>
+              <p id="previewEmail">student@example.com</p>
+            </div>
+
+            <div class="welcomeBox">
+              <h3>Edit Your Profile</h3>
+              <p>
+                Update your profile details and save your changes here.
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="rightPanel">
+        <article class="contentCard">
+          <div class="pageIntro">
+            <div class="heroPill">Update • Save • Continue</div>
+            <h1>Edit Profile</h1>
+            <p class="subText">
+              Keep your profile details updated in a clean and simple way.
+            </p>
+          </div>
+
+          <div class="formGrid">
+            <div class="field">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" type="text" placeholder="Enter full name" />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" disabled />
+            </div>
+
+            <div class="field">
+              <label for="department">Department</label>
+              <input id="department" type="text" placeholder="Enter department" />
+            </div>
+
+            <div class="field field--full">
+              <label for="bio">Short Bio</label>
+              <textarea id="bio" placeholder="Write something about yourself"></textarea>
+            </div>
+          </div>
+
+          <div id="msg" class="msg"></div>
+
+          <div class="actionRow">
+            <button id="btnSave" class="themeBtn" type="button">Save Changes</button>
+            <button id="btnCancel" class="themeBtn themeBtn--light" type="button">Cancel</button>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Islington College — Cafeteria Pre-Ordering System</div>
+    </div>
+  </footer>
+
+  <script src="./edit-profile.js"></script>
+</body>
+</html>

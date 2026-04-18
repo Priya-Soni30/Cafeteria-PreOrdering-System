@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile • Cafeteria Pre-Order</title>
+  <link rel="stylesheet" href="./profile.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="../home/home.html">
+        <div class="logo">🍱</div>
+        <div>
+          <div class="brand__title">Cafeteria Pre-Order</div>
+          <div class="brand__sub">Islington College</div>
+        </div>
+      </a>
+
+      <nav class="nav" id="userNav">
+        <a class="nav__link" href="../home/home.html">Home</a>
+        <a class="nav__link" href="../menu/menu.html">Menu</a>
+        <a class="nav__link" href="../orders/orders.html">Orders</a>
+        <a class="nav__link" href="../cart/cart.html">Cart</a>
+        <a class="nav__link" href="../wallet/wallet.html">Wallet</a>
+        <button class="nav__link nav__logout" id="btnLogoutUser" type="button">Logout</button>
+      </nav>
+
+      <nav class="nav hidden" id="adminNav">
+        <a class="nav__link" href="../home/home.html">Home</a>
+        <a class="nav__link" href="../dashboard/dashboard.html">Dashboard</a>
+        <button class="nav__link nav__logout" id="btnLogoutAdmin" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container profileShell">
+      <section class="profileCard">
+        <div class="profileTop"></div>
+
+        <div class="profileBody">
+          <div class="avatarWrap">
+            <img
+              id="profileAvatar"
+              class="avatar"
+              src="../../../../assets/default-avatar.png"
+              alt="Profile Avatar"
+            />
+            <label for="avatarInput" class="avatarEdit">Change</label>
+            <input type="file" id="avatarInput" accept="image/*" hidden />
+          </div>
+
+          <div class="profileIntro">
+            <h1 id="profileName">Student User</h1>
+            <p id="profileEmail">student@example.com</p>
+
+            <div class="badges">
+              <span class="pill role" id="profileRole">Student</span>
+              <span class="pill joined" id="profileJoined">Joined recently</span>
+            </div>
+          </div>
+
+          <div class="welcomeBox">
+            <h3>Welcome back</h3>
+            <p>
+              Manage your profile and quickly access your orders, wallet, and favorites.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="rightPanel">
+        <div class="statsGrid">
+          <article class="statCard">
+            <div class="statIcon">🧾</div>
+            <div class="statText">
+              <span class="statLabel">Total Orders</span>
+              <strong class="statValue" id="totalOrders">0</strong>
+            </div>
+          </article>
+
+          <article class="statCard" id="favoritesCard">
+            <div class="statIcon">❤️</div>
+            <div class="statText">
+              <span class="statLabel">Favorite Items</span>
+              <strong class="statValue" id="favoriteCount">0</strong>
+            </div>
+          </article>
+
+          <article class="statCard" id="loyaltyCard">
+            <div class="statIcon">⭐</div>
+            <div class="statText">
+              <span class="statLabel">Loyalty Points</span>
+              <strong class="statValue" id="loyaltyPoints">0</strong>
+            </div>
+          </article>
+
+          <article class="statCard">
+            <div class="statIcon">🛒</div>
+            <div class="statText">
+              <span class="statLabel">Cart Items</span>
+              <strong class="statValue" id="cartCount">0</strong>
+            </div>
+          </article>
+
+          <article class="statCard" id="walletCard">
+            <div class="statIcon">💰</div>
+            <div class="statText">
+              <span class="statLabel">Wallet Balance</span>
+              <strong class="statValue" id="walletBalance">Rs 0</strong>
+            </div>
+          </article>
+        </div>
+
+        <section class="contentCard">
+          <h2>Profile Details</h2>
+
+          <div class="detailsGrid">
+            <div class="detailBox">
+              <span class="detailLabel">Full Name</span>
+              <strong id="detailName">Student User</strong>
+            </div>
+
+            <div class="detailBox">
+              <span class="detailLabel">Email</span>
+              <strong id="detailEmail">student@example.com</strong>
+            </div>
+
+            <div class="detailBox">
+              <span class="detailLabel">Role</span>
+              <strong id="detailRole">Student</strong>
+            </div>
+
+            <div class="detailBox">
+              <span class="detailLabel">Joined Date</span>
+              <strong id="detailJoined">Joined recently</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="contentCard">
+          <h2>Quick Actions</h2>
+
+          <div class="actionsGrid" id="userActions">
+            <button class="actionBtn" id="btnEditProfile" type="button">Edit Profile</button>
+            <button class="actionBtn" id="btnRewards" type="button">Rewards</button>
+            <button class="actionBtn" id="btnFavorites" type="button">Favorites</button>
+            <button class="actionBtn" id="btnSpecials" type="button">Specials</button>
+          </div>
+
+          <div class="actionsGrid hidden" id="adminActions">
+            <button class="actionBtn" id="btnDashboard" type="button">Go to Dashboard</button>
+            <button class="actionBtn actionBtn--logout" id="btnLogoutProfileAdmin" type="button">Logout</button>
+          </div>
+
+          <p class="miniNote" id="actionNote">
+            Move quickly to your most used pages from here.
+          </p>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Islington College — Cafeteria Pre-Ordering System</div>
+    </div>
+  </footer>
+
+  <script src="./profile.js"></script>
+</body>
+</html>

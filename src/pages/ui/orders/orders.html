@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orders • Pre-Order</title>
+  <link rel="stylesheet" href="./orders.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="../home/home.html">
+        <div class="logo">🍱</div>
+        <div>
+          <div class="brand__title">Cafeteria Pre-Order System</div>
+          <div class="brand__sub">Islington College</div>
+        </div>
+      </a>
+
+      <nav class="nav" id="navActions">
+        <a class="nav__link" href="../home/home.html">Home</a>
+        <a class="nav__link" href="../menu/menu.html">Menu</a>
+        <a class="nav__link" href="../wallet/wallet.html">Wallet</a>
+        <a class="nav__link" href="../profile/profile.html">Profile</a>
+        <button class="nav__link nav__logout" id="logoutBtn" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page">
+    <section class="hero card">
+      <div class="heroTop">
+        <div class="heroIntro">
+          <div class="heroBadge">Track • Pickup • Reorder</div>
+          <h1>Your Orders</h1>
+          <p class="heroText muted">
+            View your latest order, pickup progress, ordered food list, payment summary, and pickup QR in one clean place.
+          </p>
+        </div>
+
+        <div class="heroActions">
+          <button id="btnTrack" class="btn small" type="button">Track Order</button>
+          <button id="btnClearHistory" class="btn ghost small" type="button">Clear History</button>
+        </div>
+      </div>
+
+      <div class="overviewGrid">
+        <div class="overviewCard">
+          <div class="overviewLabel">Pickup Time</div>
+          <div id="pickupTimeText" class="overviewValue">—</div>
+        </div>
+
+        <div class="overviewCard">
+          <div class="overviewLabel">Payment Method</div>
+          <div id="paymentText" class="overviewValue">—</div>
+        </div>
+
+        <div class="overviewCard">
+          <div class="overviewLabel">Payment Status</div>
+          <div id="paymentStatusText" class="overviewValue">—</div>
+        </div>
+
+        <div class="overviewCard">
+          <div class="overviewLabel">Order Total</div>
+          <div id="heroTotalText" class="overviewValue">Rs 0</div>
+        </div>
+
+        <div class="overviewCard">
+          <div class="overviewLabel">Items</div>
+          <div id="heroItemsText" class="overviewValue">0 item(s)</div>
+        </div>
+
+        <div class="overviewCard">
+          <div class="overviewLabel">Reference</div>
+          <div id="paymentRefText" class="overviewValue">—</div>
+        </div>
+      </div>
+
+      <div class="heroContentGrid">
+        <section class="miniCard statusCard">
+          <div class="miniTitle">Order Status</div>
+
+          <div class="tracker">
+            <div class="trackerStep active" id="stepPlaced">
+              <div class="trackerDot">1</div>
+              <div class="trackerLabel">Placed</div>
+            </div>
+
+            <div class="trackerLine"></div>
+
+            <div class="trackerStep" id="stepPreparing">
+              <div class="trackerDot">2</div>
+              <div class="trackerLabel">Preparing</div>
+            </div>
+
+            <div class="trackerLine"></div>
+
+            <div class="trackerStep" id="stepReady">
+              <div class="trackerDot">3</div>
+              <div class="trackerLabel">Ready</div>
+            </div>
+          </div>
+
+          <div class="statusBottom">
+            <div class="pillStatus">
+              <span class="statusIcon">☑</span>
+              <span id="orderStateText">Placed</span>
+            </div>
+            <div id="statusMessageText" class="statusText">
+              Your order has been recorded successfully.
+            </div>
+          </div>
+        </section>
+
+        <section class="miniCard sideInfoCard">
+          <div class="miniTitle">Pickup Details</div>
+
+          <div class="infoStack">
+            <div class="infoRow">
+              <span class="infoLabel">Loyalty Points</span>
+              <span id="loyaltyPointsText" class="infoValue">0 pts earned</span>
+            </div>
+
+            <div class="infoRow">
+              <span class="infoLabel">Estimated Wait</span>
+              <span id="waitTimeText" class="infoValue">10-15 min</span>
+            </div>
+
+            <div class="infoRow">
+              <span class="infoLabel">Cafeteria</span>
+              <span id="cafeteriaText" class="infoValue">—</span>
+            </div>
+
+            <div class="infoRow paymentSummaryRow">
+              <div class="paymentSummaryLeft">
+                <span class="infoLabel">Payment Summary</span>
+                <span id="paymentSummaryText" class="infoValue">View payment details</span>
+              </div>
+              <button id="btnPaymentSummary" class="btn small" type="button">View Summary</button>
+            </div>
+
+            <div class="infoRow qrRow">
+              <div class="qrLeft">
+                <div class="infoLabel">Pickup QR</div>
+                <div id="collectionCodeText" class="collectionCode">ORD-000000</div>
+                <div class="qrHint">Show this code while collecting your order.</div>
+
+                <div class="qrActions">
+                  <a href="../pickup-scanner/pickup-scanner.html" class="btn small qrScanBtn">Pickup Scanner</a>
+                </div>
+              </div>
+
+              <div id="qrCode" class="qrCodeBox"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="specialFromHomeSection" class="card section" style="display:none;">
+      <div class="sectionTop">
+        <div class="secTitle">Selected Special Item</div>
+      </div>
+
+      <div id="specialFromHomeCard" class="latestCard">
+        <div class="latestHead">
+          <div>
+            <div id="specialFromHomeTitle" class="orderNo">Special Item</div>
+            <div id="specialFromHomeCafe" class="muted">—</div>
+          </div>
+          <div id="specialFromHomePrice" class="totalBadge">Rs 0</div>
+        </div>
+
+        <div id="specialFromHomeItemWrap" class="itemsList"></div>
+      </div>
+    </section>
+
+    <section class="contentGrid">
+      <section class="card section">
+        <div class="sectionTop">
+          <div class="secTitle">Latest Order</div>
+        </div>
+
+        <div id="latestEmpty" class="empty" style="display:none;">No order placed yet.</div>
+
+        <div id="latestCard" class="latestCard" style="display:none;">
+          <div class="latestHead">
+            <div>
+              <div id="latestOrderNo" class="orderNo">Order #—</div>
+              <div id="latestDate" class="muted">—</div>
+            </div>
+            <div id="latestTotal" class="totalBadge">Rs 0</div>
+          </div>
+
+          <div class="latestMetaPills">
+            <span class="metaPill" id="latestPickupPill">Pickup: —</span>
+            <span class="metaPill" id="latestPaymentPill">Payment: —</span>
+            <span class="metaPill" id="latestPaymentStatusPill">Status: —</span>
+          </div>
+
+          <div class="noteBox">
+            <div class="noteTitle">Note to Cafeteria</div>
+            <div id="latestNote" class="muted">—</div>
+          </div>
+
+          <div id="latestItems" class="itemsList"></div>
+        </div>
+      </section>
+
+      <section class="card section">
+        <div class="sectionTop">
+          <div class="secTitle">Order History</div>
+        </div>
+
+        <div id="historyEmpty" class="empty" style="display:none;">No order history yet.</div>
+        <div id="historyList" class="historyList"></div>
+      </section>
+    </section>
+  </main>
+
+  <div id="paymentSummaryModal" class="summaryModal hidden">
+    <div class="summaryModalBackdrop" id="paymentSummaryBackdrop"></div>
+
+    <div class="summaryModalCard">
+      <button class="summaryModalClose" id="paymentSummaryClose" type="button" aria-label="Close">×</button>
+
+      <div class="summaryModalTop">
+        <div class="summaryModalBadge">Payment Summary</div>
+        <h2>Order Payment Details</h2>
+        <p>Here is the payment information for your latest order.</p>
+      </div>
+
+      <div class="summaryDetailsGrid">
+        <div class="summaryDetailsBox">
+          <div class="summaryDetailRow">
+            <span>Payment Method</span>
+            <strong id="modalPaymentMethod">—</strong>
+          </div>
+
+          <div class="summaryDetailRow">
+            <span>Payment Status</span>
+            <strong id="modalPaymentStatus">—</strong>
+          </div>
+
+          <div class="summaryDetailRow">
+            <span>Reference</span>
+            <strong id="modalPaymentReference">—</strong>
+          </div>
+
+          <div class="summaryDetailRow">
+            <span>Account</span>
+            <strong id="modalPaymentAccount">—</strong>
+          </div>
+
+          <div class="summaryDetailRow">
+            <span>Total Amount</span>
+            <strong id="modalPaymentTotal">Rs 0</strong>
+          </div>
+        </div>
+
+        <div class="summaryInfoBox">
+          <div class="summaryInfoTitle">Quick Payment Note</div>
+          <div id="modalPaymentNote" class="summaryInfoText">
+            Your payment details are stored with this order for quick review.
+          </div>
+        </div>
+      </div>
+
+      <div class="summaryModalActions">
+        <button class="btn" id="paymentSummaryDone" type="button">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footerInner">
+      <div>© <span id="year"></span> Islington College Cafeteria</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="./orders.js"></script>
+</body>
+</html>

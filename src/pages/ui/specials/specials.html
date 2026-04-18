@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Specials • Cafeteria Pre-Order</title>
+  <link rel="stylesheet" href="./specials.css" />
+</head>
+<body>
+  <script src="../config.js"></script>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="../home/home.html">
+        <div class="brand__logo">🍱</div>
+        <div>
+          <div class="brand__title">Cafeteria Pre-Order</div>
+          <div class="brand__sub">Islington College</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="../home/home.html">Home</a>
+        <a class="nav__link" href="../menu/menu.html">Menu</a>
+        <a class="nav__link" href="../orders/orders.html">Orders</a>
+        <a class="nav__link" href="../cart/cart.html">Cart</a>
+        <a class="nav__link" href="../profile/profile.html">Profile</a>
+        <button class="nav__link nav__btn" id="btnLogout" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <section class="hero">
+        <span class="hero__badge">Daily Specials</span>
+        <h1>Today’s Specials & Promotions</h1>
+        <p>
+          Explore limited offers, combo deals, and cafeteria-specific special dishes available today.
+          Each cafeteria has featured daily specials and promotional items.
+        </p>
+      </section>
+
+      <section class="toolbar">
+        <select id="cafeteriaFilter">
+          <option value="">All Cafeterias</option>
+          <option value="Kumari Hall">Kumari Hall</option>
+          <option value="Brit Cafe">Brit Cafe</option>
+          <option value="Coffee Station">Coffee Station</option>
+          <option value="Canteen">Canteen</option>
+        </select>
+
+        <select id="typeFilter">
+          <option value="">All Types</option>
+          <option value="daily-special">Daily Specials</option>
+          <option value="promotion">Promotions</option>
+        </select>
+
+        <div class="resultBadge" id="resultBadge">0 special item(s)</div>
+      </section>
+
+      <section class="offersGrid" id="offersGrid">
+        <div class="emptyBox">Loading specials...</div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> Islington College — Cafeteria Pre-Ordering System</div>
+    </div>
+  </footer>
+
+  <script src="./specials.js"></script>
+</body>
+</html>

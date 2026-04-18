@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nutrition • Cafeteria Pre-Order</title>
+  <link rel="stylesheet" href="./nutrition.css" />
+</head>
+<body>
+  <script src="../config.js"></script>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="../home/home.html">
+        <div class="brand__logo">🍱</div>
+        <div>
+          <div class="brand__title">Cafeteria Pre-Order</div>
+          <div class="brand__sub">Islington College</div>
+        </div>
+      </a>
+
+      <nav class="nav" id="navActions">
+        <a class="nav__link" href="../home/home.html">Home</a>
+        <a class="nav__link" href="../menu/menu.html">Menu</a>
+        <a class="nav__link" href="../orders/orders.html">Orders</a>
+        <a class="nav__link" href="../cart/cart.html">Cart</a>
+        <a class="nav__link" href="../wallet/wallet.html">Top-up Wallet</a>
+        <a class="nav__link" href="../profile/profile.html">Profile</a>
+        <button class="nav__link nav__btn" id="btnLogout" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page">
+    <section id="statusCard" class="card statusCard">
+      <div id="statusText">Loading nutrition...</div>
+    </section>
+
+    <section id="nutritionPage" class="layout" style="display:none;">
+      <section class="card leftPanel">
+        <div class="foodTop">
+          <img id="foodImg" class="foodImg" alt="Food image" />
+
+          <div class="foodTopInfo">
+            <h1 id="foodName">Food Name</h1>
+            <div id="foodMeta" class="foodMeta">0 kcal per serving</div>
+
+            <div class="badgeRow">
+              <span id="foodCategory" class="badge soft">Food</span>
+              <span id="dietBadge" class="badge">Diet</span>
+              <span id="priceBadge" class="badge">Rs 0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <button id="tabFacts" class="tabBtn active" type="button">Nutrition Facts</button>
+          <button id="tabIng" class="tabBtn" type="button">Ingredients</button>
+        </div>
+
+        <div id="factsPanel" class="tabPanel">
+          <div class="innerCard">
+            <div class="panelTitle">Nutrition Facts</div>
+            <div id="servingText" class="servingText">Serving Size: —</div>
+
+            <div class="tableHead">
+              <div>Item</div>
+              <div class="right">Daily Value*</div>
+              <div class="right">% Daily Value*</div>
+            </div>
+
+            <div id="factsRows" class="factsRows"></div>
+
+            <div class="footNote">
+              *Percent Daily Values are based on a 2000 calorie diet.
+            </div>
+          </div>
+
+          <div class="helpText">Need Help? Ask staff for allergen info.</div>
+        </div>
+
+        <div id="ingPanel" class="tabPanel hide">
+          <div class="innerCard">
+            <div class="panelTitle">Ingredients</div>
+            <ul id="ingList" class="ingList"></ul>
+          </div>
+
+          <div class="innerCard allergenCard">
+            <div class="panelTitle">Allergens</div>
+            <div id="allergensText" class="plainText">—</div>
+          </div>
+
+          <div class="innerCard noteCard">
+            <div class="panelTitle">Notes</div>
+            <div id="notesText" class="plainText">—</div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="card rightPanel">
+        <div class="panelTitle">Nutrition Facts</div>
+        <div id="servingText2" class="servingText">Serving Size: —</div>
+
+        <div class="chartCard">
+          <div class="donutWrap">
+            <svg viewBox="0 0 120 120" class="donutSvg" aria-hidden="true">
+              <circle cx="60" cy="60" r="38" class="donutTrack"></circle>
+              <circle id="segFat" cx="60" cy="60" r="38" class="donutSeg fat"></circle>
+              <circle id="segCarb" cx="60" cy="60" r="38" class="donutSeg carb"></circle>
+              <circle id="segProt" cx="60" cy="60" r="38" class="donutSeg prot"></circle>
+            </svg>
+
+            <div class="donutCenter">
+              <div id="kcalBig" class="kcalBig">0</div>
+              <div class="kcalLabel">kcal</div>
+            </div>
+          </div>
+
+          <div id="macroLegend" class="macroLegend"></div>
+        </div>
+
+        <button id="btnViewIngredients" class="mainBtn" type="button">View Ingredients</button>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© Islington College — Cafeteria Pre-Ordering System</span>
+    </div>
+  </footer>
+
+  <script src="./nutrition.js"></script>
+</body>
+</html>

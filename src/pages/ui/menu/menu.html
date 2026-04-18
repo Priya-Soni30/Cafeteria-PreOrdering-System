@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu • Cafeteria Pre-Order System</title>
+  <link rel="stylesheet" href="./menu.css" />
+</head>
+<body>
+  <script src="../config.js"></script>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="../home/home.html">
+        <div class="brand__logo">🍱</div>
+        <div>
+          <div class="brand__title">Cafeteria Pre-Order</div>
+          <div class="brand__sub">Islington College</div>
+        </div>
+      </a>
+
+      <nav class="nav" id="navActions">
+        <a class="nav__link" href="../home/home.html">Home</a>
+        <a class="nav__link" href="../orders/orders.html">Orders</a>
+        <a class="nav__link" href="../wallet/wallet.html">Top-up Wallet</a>
+        <a class="nav__link" href="../profile/profile.html">Profile</a>
+        <button class="nav__link nav__btn" id="btnLogout" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="menu-hero" id="menuHero">
+    <div class="menu-hero__overlay"></div>
+
+    <div class="container menu-hero__content">
+      <div class="menu-hero__text">
+        <div class="hero-pill">Fresh • Easy • Quick Pickup</div>
+        <h1 id="menuTitle">Brit Cafe Menu</h1>
+        <p id="menuSubtitle">
+          Explore food and drinks, check dietary tags, and pre-order with less waiting.
+        </p>
+
+        <div class="hero-actions">
+          <a class="hero-btn hero-btn--light" href="../orders/orders.html">My Orders</a>
+          <a class="hero-btn hero-btn--light" href="../favorites/favorites.html">My Favorites</a>
+          <a class="hero-btn hero-btn--light" href="../home/home.html">Back Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container page">
+    <section class="cafe-switch-card">
+      <div class="section-top">
+        <h2>Choose Cafeteria</h2>
+        <p>Switch cafeteria to see its specific items and shared food or drinks.</p>
+      </div>
+      <div class="cafeteria-tabs" id="cafeteriaTabs"></div>
+    </section>
+
+    <section class="filters-card">
+      <div class="filters-row filters-row--top">
+        <input id="searchInput" type="text" placeholder="Search food or drink..." />
+
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+          <option value="main">Main</option>
+          <option value="snacks">Snacks</option>
+          <option value="drinks">Drinks</option>
+          <option value="dessert">Dessert</option>
+          <option value="healthy">Healthy</option>
+        </select>
+
+        <select id="allergenFilter">
+          <option value="all">Exclude allergen...</option>
+          <option value="gluten">Gluten</option>
+          <option value="dairy">Dairy</option>
+          <option value="nuts">Nuts</option>
+          <option value="soy">Soy</option>
+        </select>
+      </div>
+
+      <div class="filters-row filters-row--mid">
+        <label class="check-pill"><input type="checkbox" id="specialOnly" /> <span>Daily Specials</span></label>
+        <label class="check-pill"><input type="checkbox" id="vegOnly" /> <span>Vegetarian</span></label>
+        <label class="check-pill"><input type="checkbox" id="veganOnly" /> <span>Vegan</span></label>
+        <label class="check-pill"><input type="checkbox" id="nonVegOnly" /> <span>Non-Vegetarian</span></label>
+      </div>
+
+      <div class="filters-row filters-row--bottom">
+        <a href="../cart/cart.html" id="cartFilterBtn" class="btn btn--olive">
+          Cart (<span id="cartCount">0</span>)
+        </a>
+
+        <a href="../favorites/favorites.html" id="favoritesBtn" class="btn btn--olive">
+          Favorites
+        </a>
+
+        <a href="../rewards/rewards.html" id="rewardsBtn" class="btn btn--olive">
+          Rewards
+        </a>
+
+        <a href="../specials/specials.html" id="specialsBtn" class="btn btn--olive">
+          Specials
+        </a>
+
+        <a href="../peak-hours/peak-hours.html" id="peakHoursBtn" class="btn btn--olive">
+          Peak Hours
+        </a>
+      </div>
+    </section>
+
+    <section class="quick-info-grid">
+      <article class="quick-info quick-info--lav">
+        <h3>Smart Ordering</h3>
+        <p>Choose cafeteria, filter items, and update cart faster with simple controls.</p>
+      </article>
+
+      <article class="quick-info quick-info--green">
+        <h3>Dietary Support</h3>
+        <p>Check vegetarian, vegan, non-veg, and allergen-related options quickly.</p>
+      </article>
+
+      <article class="quick-info quick-info--blue">
+        <h3>Pre-order Flow</h3>
+        <p>Adjust quantity here, review cart, pay, and collect from the cafeteria.</p>
+      </article>
+    </section>
+
+    <section class="menu-wrap specials-wrap" id="specialsSection">
+      <div class="section-head">
+        <div>
+          <h2>Today’s Specials </h2>
+          <p class="section-sub">Limited-time offers, discounted meals, and featured cafeteria picks.</p>
+        </div>
+        <div class="result-count" id="specialsCount">0 special item(s)</div>
+      </div>
+
+      <div class="menu-grid" id="specialsGrid"></div>
+      <div id="specialsEmptyState" class="empty-state" hidden>No specials available right now.</div>
+    </section>
+
+    <section class="menu-wrap">
+      <div class="section-head">
+        <div>
+          <h2 id="sectionTitle">Food & Drinks</h2>
+          <p class="section-sub">Specific cafeteria items first, then common food and drink items.</p>
+        </div>
+        <div class="result-count" id="resultCount">0 item(s) found</div>
+      </div>
+
+      <div class="menu-grid" id="menuGrid"></div>
+      <div id="emptyState" class="empty-state" hidden>No items found.</div>
+    </section>
+  </main>
+
+  <script src="./menu.js"></script>
+</body>
+</html>

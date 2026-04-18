@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peak Hours • Cafeteria Pre-Order</title>
+  <link rel="stylesheet" href="./peak-hours.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <script src="../config.js"></script>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../home/home.html">
+        <div class="brand-logo">🍱</div>
+        <div class="brand-text">
+          <div class="brand-title">Cafeteria Pre-Order</div>
+          <div class="brand-sub">Islington College</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a class="nav-btn" href="../home/home.html">Home</a>
+        <a class="nav-btn" href="../menu/menu.html">Menu</a>
+        <a class="nav-btn" href="../orders/orders.html">Orders</a>
+        <a class="nav-btn" href="../cart/cart.html">Cart</a>
+        <a class="nav-btn" href="../profile/profile.html">Profile</a>
+        <button class="nav-btn" id="btnLogout" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page">
+    <section class="hero card">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">CAFETERIA INSIGHTS</div>
+        <h1 class="hero-title">Peak Hours & Visualization</h1>
+        <p class="hero-desc">
+          View the busiest order times for each cafeteria and plan your pickup when the crowd is lower.
+        </p>
+      </div>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+    </section>
+
+    <section class="toolbar card">
+      <div class="toolbar-left">
+        <label for="cafeSelect" class="field-label">Choose Cafeteria</label>
+        <select id="cafeSelect" class="field-select">
+          <option value="kumari-hall">Kumari Hall</option>
+          <option value="brit-cafe">Brit Cafe</option>
+          <option value="coffee-station">Coffee Station</option>
+          <option value="canteen">Canteen</option>
+        </select>
+      </div>
+
+      <div class="toolbar-right">
+        <div class="active-badge" id="activeCafeBadge">Kumari Hall</div>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="card stat-card stat-card--lavender">
+        <div class="stat-icon">⏰</div>
+        <div class="stat-info">
+          <div class="stat-value" id="peakTime">--</div>
+          <div class="stat-label">Peak Time</div>
+        </div>
+      </article>
+
+      <article class="card stat-card stat-card--green">
+        <div class="stat-icon">🧾</div>
+        <div class="stat-info">
+          <div class="stat-value" id="totalOrders">--</div>
+          <div class="stat-label">Total Orders</div>
+        </div>
+      </article>
+
+      <article class="card stat-card stat-card--blue">
+        <div class="stat-icon">🍽️</div>
+        <div class="stat-info">
+          <div class="stat-value" id="topItem">--</div>
+          <div class="stat-label">Most Popular Item</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <section class="card chart-card">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Orders Placed Chart</h2>
+            <p class="section-sub">Bar graph by ordering time</p>
+          </div>
+        </div>
+
+        <div class="chart-wrap">
+          <canvas id="peakChart"></canvas>
+        </div>
+      </section>
+
+      <aside class="side-panel">
+        <section class="card insight-card">
+          <h2 class="section-title">Quick Insight</h2>
+
+          <div class="insight-box">
+            <div class="insight-title">Best Time to Order</div>
+            <div class="insight-text" id="bestTimeText">--</div>
+          </div>
+
+          <div class="insight-box">
+            <div class="insight-title">Rush Window</div>
+            <div class="insight-text" id="rushWindowText">--</div>
+          </div>
+
+          <div class="insight-box">
+            <div class="insight-title">Cafeteria Note</div>
+            <div class="insight-text" id="cafeNoteText">--</div>
+          </div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-text">
+        © <span id="year"></span> Islington College — Cafeteria Pre-Ordering System
+      </div>
+    </div>
+  </footer>
+
+  <script src="./peak-hours.js"></script>
+</body>
+</html>

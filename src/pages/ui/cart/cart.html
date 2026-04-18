@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart • Pre-Order</title>
+  <link rel="stylesheet" href="./cart.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="../home/home.html">
+        <div class="logo">🍱</div>
+        <div>
+          <div class="brand__title">Cafeteria Pre-Order System</div>
+          <div class="brand__sub">Islington College</div>
+        </div>
+      </a>
+
+      <nav class="nav" id="navActions">
+        <a class="nav__link" href="../home/home.html">Home</a>
+        <a class="nav__link" href="../menu/menu.html">Menu</a>
+        <a class="nav__link" href="../orders/orders.html">Orders</a>
+        <a class="nav__link" href="../profile/profile.html">Profile</a>
+        <button class="nav__link nav__logout" id="logoutBtn" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page">
+    <section class="hero card">
+      <div class="heroLeft">
+        <div class="heroIntro">
+          <div class="heroBadge">Fast • Smart • Prepaid Pickup</div>
+          <h1>Your Cart</h1>
+          <div class="muted heroLead">
+            Review items, choose pickup time, and complete your pre-order in a clean and simple way.
+          </div>
+          <div id="status" class="status muted"></div>
+        </div>
+
+        <div class="heroInfoGrid">
+          <div class="miniCard">
+            <div class="miniIcon">🛒</div>
+            <div class="miniTitle">Pre-Order Flow</div>
+            <div class="miniText">Cart → Pickup Time → Payment → Order Confirmation</div>
+          </div>
+
+          <div class="miniCard">
+            <div class="miniIcon">⏱</div>
+            <div class="miniTitle">Estimated Wait Time</div>
+            <div class="miniText">Most cafeteria orders are prepared within 10 to 15 minutes.</div>
+          </div>
+
+          <div class="miniCard">
+            <div class="miniIcon">💳</div>
+            <div class="miniTitle">Wallet Benefit</div>
+            <div class="miniText">Use wallet balance for faster checkout after topping up.</div>
+          </div>
+
+          <div class="miniCard">
+            <div class="miniIcon">✅</div>
+            <div class="miniTitle">Today’s Reminder</div>
+            <div class="miniText">Check quantity, pickup time, and payment method before placing your order.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroRight">
+        <div class="miniCard">
+          <div class="miniTitle">Pickup Time</div>
+
+          <label class="label" for="pickupTime">Select time (today)</label>
+          <input id="pickupTime" class="input" type="time" />
+
+          <div class="hint muted">We’ll prepare your food before pickup time.</div>
+        </div>
+
+        <div class="miniCard">
+          <div class="miniTitle">Payment Method</div>
+
+          <label class="label" for="paymentMethod">Choose method</label>
+          <select id="paymentMethod" class="input">
+            <option value="esewa">eSewa Payment</option>
+            <option value="cash">Cash on Pickup</option>
+            <option value="wallet">Wallet Balance</option>
+          </select>
+
+          <div class="hint muted" id="paymentHint">
+            eSewa Payment will redirect you to eSewa sandbox before order confirmation.
+          </div>
+        </div>
+
+        <div class="miniCard">
+          <div class="miniTitle">Quick Note</div>
+          <div class="miniText">
+            If wallet balance is low, top it up first from your wallet page and then return to checkout.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="sectionTop">
+        <div class="secTitle">Items</div>
+        <button id="btnClear" class="btn ghost" type="button">Clear Cart</button>
+      </div>
+
+      <div id="empty" class="empty" style="display:none;">Your cart is empty.</div>
+      <div id="list" class="list"></div>
+    </section>
+
+    <section class="card section">
+      <div class="sectionTop">
+        <div class="secTitle">Summary</div>
+      </div>
+
+      <div class="summaryGrid">
+        <div class="row">
+          <div class="muted">Subtotal</div>
+          <div id="subtotal" class="val">Rs 0</div>
+        </div>
+
+        <div class="row">
+          <div class="muted">Service</div>
+          <div class="val">Rs 0</div>
+        </div>
+
+        <div class="row">
+          <div class="muted">Wallet Balance</div>
+          <div id="walletBalanceDisplay" class="val">Rs 0</div>
+        </div>
+
+        <div class="row">
+          <div class="muted">Payment Type</div>
+          <div id="selectedPaymentType" class="val">eSewa Payment</div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="row total">
+          <div>Total</div>
+          <div id="total" class="val">Rs 0</div>
+        </div>
+
+        <label class="label" for="note">Note to Cafeteria (optional)</label>
+        <input id="note" class="input" placeholder="Example: less spicy, no onions..." />
+
+        <button id="btnPlaceOrder" class="btnWide" type="button">Place Pre-Order</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footerInner">
+      <div>© <span id="year"></span> Islington College Cafeteria</div>
+    </div>
+  </footer>
+
+  <script src="./cart.js"></script>
+</body>
+</html>
